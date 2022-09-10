@@ -1,0 +1,9 @@
+Hey Taylor Brown!
+
+---------------------------------
+Your Subtotal:           $76.00
+Activity Fee:            $35.00
+Technology Fee:          $16.00
+CAPS Fee:                $15.00
+---------------------------------
+Total:                   $142.00
