@@ -1,0 +1,8 @@
+                                                               Fall Semester 2022                                                 
+Class Name                                  | Date Range       | Meeting days     | Meeting Times     | Meeting Location  | Instructor       
+---------------------------------------------------------------------------------------------------------------------------------------------
+ENG-110-1B02 - Freshman Composition         | 15AUG22-10OCT22  | T                | 3pm-4:50PM        | VCC-219           | Kevin Barham     
+CSC-253-0001 - Advanced C# Programming      | 15AUG22-10DEC22  | M/W              | 8AM-9:50AM        | ATC-156           | William Buckwell 
+COM-231-0007 - Public Speaking              | 15AUG22-10DEC22  | M/W              | 12PM-12:50PM      | CUH-337           | Leslie Corpening 
+MAT-143-0005 - Quantitative Literacy        | 15AUG22-10DEC22  | T/TH             | 9:30AM-10:55AM    | HOS-605           | Jessica West     
+CSC-251-0901 - Advanced JAVA Programming    | 15AUG22-10DEC22  | M/W              | 10AM-11:50AM      | ATC-156           | David Teter      
