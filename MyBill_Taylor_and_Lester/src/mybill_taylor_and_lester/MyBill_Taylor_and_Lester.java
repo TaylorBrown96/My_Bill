@@ -28,8 +28,6 @@ public class MyBill_Taylor_and_Lester
     // Displays the doubles to the houndreth decimal place for USD
     private static final DecimalFormat df = new DecimalFormat("0.00");
     
-    
-    
     // Launches the first form
     public static void main(String[] args)
     { 
