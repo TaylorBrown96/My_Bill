@@ -5,14 +5,13 @@
  */
 package mybill_taylor_and_lester;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import javax.swing.JFileChooser;
+import java.util.Arrays;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Activity_Fee;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.CAPS;
-import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Name;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Classes;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Subtotal;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Total;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Technology_Fee;
@@ -31,6 +30,12 @@ public class MyBill_JF_FileSave
     public MyBill_JF_FileSave()
     {
         initComponents();
+    }
+    
+    private static String repeatChar(char c, int length) {
+        char[] data = new char[length];
+        Arrays.fill(data, c);
+        return new String(data);
     }
 
     /**
@@ -80,18 +85,42 @@ public class MyBill_JF_FileSave
         // Displays the doubles to the houndreth decimal place for USD
         DecimalFormat df = new DecimalFormat("0.00");
         
+        // Table Header
+        String courseColumns = String.format(("%-48s| %-18s| %-16s| %-18s| %-11s| %-19s| %-11s ")
+                                            ,"Course Title"
+                                            ,"Course Dates"
+                                            ,"Meeting Days"
+                                            ,"Course Times"
+                                            ,"Location"
+                                            ,"Instructor"
+                                            ,"Credits");
+        
+        // Table Rows
+        String data = "";
+        for (Class section : Classes){
+            data += String.format(("%-48s| %-18s| %-16s| %-18s| %-11s| %-19s| %-11s  \n")
+                                        ,section.className
+                                        ,section.dateRange
+                                        ,section.meetingDays
+                                        ,section.meetingTimes
+                                        ,section.meetingLocation
+                                        ,section.instructor
+                                        ,section.creditHours);
+        }
+
         // Creates a new file and then opens the file to write the students price breakdown
         try (FileWriter myWriter = new FileWriter(SD_Location.getSelectedFile()+".txt")) {
-            myWriter.write("Hey " + Student_Name + "!\n"
-                         + "\n---------------------------------"
+            myWriter.write(courseColumns + "\n"
+                         + repeatChar('-', 152) + "\n"
+                         + data + "\n\n"
+                         + repeatChar('-', 34)
                          + "\nYour Subtotal:           $" + df.format(Student_Subtotal) 
                          + "\nActivity Fee:            $" + df.format(Activity_Fee) 
                          + "\nTechnology Fee:          $" + df.format(Technology_Fee)
                          + "\nCAPS Fee:                $" + df.format(CAPS)
-                         + "\n---------------------------------"
+                         + "\n" + repeatChar('-', 34)
                          + "\nTotal:                   $" + df.format(Student_Total));
             myWriter.close();
-            //
         } 
         catch (IOException e) {
             System.out.println("An error occurred.\n");

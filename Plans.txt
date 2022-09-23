@@ -3,7 +3,7 @@ L- Lester
 
 ************************************************************************************************************
 
-T- User selectable save locations
+DONE - T- User selectable save locations
 	user can choose the location that the file is saved to
 
 DONE - T- Enter class information
@@ -11,7 +11,7 @@ DONE - T- Enter class information
 
 DONE - L- Calculate the totals based off of credit hours entered for each class
 
-L- Display total credit hours
+DONE - L- Display total credit hours
 
 T- Header breakdown
 	School information, semester term, year, students name, current date
