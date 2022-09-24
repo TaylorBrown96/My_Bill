@@ -90,7 +90,7 @@ public class MyBill_Taylor_and_Lester
         Student_Residency = false;
         
         // Creates dummy objects 
-        Class test1 = new Class("ENG-110-1B02 - Freshman Composition", "15AUG22-10OCT22", "T", "3pm-4:50PM", "VCC-219", "Kevin Barham", 8);
+        Class test1 = new Class("ENG-110-1B02 - Freshman Composition", "15AUG22-10OCT22", "T", "3pm-4:50PM", "VCC-219", "Kevin Barham", 3);
         Class test2 = new Class("CSC-253-0001 - Advanced C# Programming", "15AUG22-10DEC22", "M/W", "8AM-9:50AM", "ATC-156","William Buckwell", 3);
         Class test3 = new Class("COM-231-0007 - Public Speaking", "15AUG22-10DEC22", "M/W", "12PM-12:50PM", "CUH-337","Leslie Corpening", 3);
         Class test4 = new Class("MAT-143-0005 - Quantitative Literacy", "15AUG22-10DEC22", "T/TH", "9:30AM-10:55AM", "HOS-605","Jessica West", 3);
