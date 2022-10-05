@@ -31,17 +31,21 @@ public class MyBill_JF_User
     private void initComponents() {
 
         L_FName = new javax.swing.JLabel();
-        TB_FName = new javax.swing.JTextField();
+        TB_Name = new javax.swing.JTextField();
         Btn_Exit = new javax.swing.JButton();
         Btn_Next = new javax.swing.JButton();
-        L_LName = new javax.swing.JLabel();
-        TB_LName = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        TB_SchoolName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        CB_Term = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        TB_StudentID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MyBill | Taylor & Lester");
         setBackground(new java.awt.Color(0, 54, 184));
 
-        L_FName.setText("Please enter your first name:");
+        L_FName.setText("Your name:");
 
         Btn_Exit.setText("Exit");
         Btn_Exit.addActionListener(new java.awt.event.ActionListener() {
@@ -57,41 +61,55 @@ public class MyBill_JF_User
             }
         });
 
-        L_LName.setText("Please enter your last name:");
+        jLabel1.setText("Schools name:");
+
+        jLabel2.setText("Semester term:");
+
+        CB_Term.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Spring", "Summer", "Fall" }));
+
+        jLabel3.setText("Student ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Btn_Exit)
+                .addGap(55, 55, 55)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(Btn_Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Btn_Next))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(L_FName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TB_FName))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(L_LName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TB_LName))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Btn_Next, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TB_Name, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TB_SchoolName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(L_FName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CB_Term, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TB_StudentID, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(L_FName)
-                    .addComponent(L_LName))
+                .addComponent(L_FName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TB_FName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TB_LName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(TB_Name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TB_StudentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TB_SchoolName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CB_Term, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Btn_Exit)
                     .addComponent(Btn_Next))
@@ -110,14 +128,14 @@ public class MyBill_JF_User
 
     private void Btn_NextActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_Btn_NextActionPerformed
     {//GEN-HEADEREND:event_Btn_NextActionPerformed
-        // Takes in the students first and last name
-        String fName = TB_FName.getText();
-        String lName = TB_LName.getText();
+        // Takes in the values entered by the user
+        String studentName = TB_Name.getText();
+        String studentID = TB_StudentID.getText();
+        String schoolName = TB_SchoolName.getText();
+        String term = CB_Term.getSelectedItem().toString();
         
-        // concantinates the first and last name of the student with an _ inbetween them
-        String fullName = fName + " " + lName; 
-        // Sends the students name to the main program for storage
-        MyBill_Taylor_and_Lester.getUserName(fullName);
+        // Sends the users inputs to be stored
+        MyBill_Taylor_and_Lester.getFormData(studentName, studentID, schoolName, term);
         
         // Launches and terminates windows 
         new MyBill_JF_Class().setVisible(true);
@@ -194,9 +212,13 @@ public class MyBill_JF_User
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Exit;
     private javax.swing.JButton Btn_Next;
+    private javax.swing.JComboBox<String> CB_Term;
     private javax.swing.JLabel L_FName;
-    private javax.swing.JLabel L_LName;
-    private javax.swing.JTextField TB_FName;
-    private javax.swing.JTextField TB_LName;
+    private javax.swing.JTextField TB_Name;
+    private javax.swing.JTextField TB_SchoolName;
+    private javax.swing.JTextField TB_StudentID;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

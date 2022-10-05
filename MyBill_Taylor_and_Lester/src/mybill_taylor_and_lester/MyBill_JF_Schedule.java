@@ -6,9 +6,15 @@ import javax.swing.table.DefaultTableModel;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Activity_Fee;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.CAPS;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Classes;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.School_Name;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_FinAid;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_ID;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Name;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Refund;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Subtotal;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Total;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Technology_Fee;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Term;
 
 /**
  *
@@ -28,26 +34,40 @@ public class MyBill_JF_Schedule extends javax.swing.JFrame {
         
         GenerateTable();
         
+        String header = "Student Name: " + Student_Name
+                      + "\nStudent ID: " + Student_ID
+                      + "\nSchool Name: " + School_Name
+                      + "\nSemester Term: " + Term;
+        
+        
         // Prints the students recipt
         String recipt = "\nYour Subtotal:         | $" + df.format(Student_Subtotal) 
                         + "\nActivity Fee:              | $" + df.format(Activity_Fee) 
                         + "\nTechnology Fee:     | $" + df.format(Technology_Fee)
                         + "\nCAPS Fee:               | $" + df.format(CAPS)
                         + "\n------------------------------------------"
-                        + "\nTotal:                         | $" + df.format(Student_Total);
+                        + "\nTotal:                         | $" + df.format(Student_Total)
+                        + "\nFinancial Aid:           | $" + df.format(Student_FinAid)
+                        + "\n------------------------------------------"
+                        + "\nNew Total:                | $" + df.format(Student_Refund);
         
+        TP_Header.setText(header);
         TP_Recipt.setText(recipt);
     }
     
     // Populate table data from class objects
     public void GenerateTable()
     {
+        // Get the genaric table model
         DefaultTableModel model = (DefaultTableModel)ScheduleTable.getModel();
         
+        // Iterate through eaach object in the list
         for(Class section : Classes)
         {
+            // Create a temp object
             Object[] o = new Object[7];
             
+            // Each object property is assigned to an objects index
             o[0] = section.className;
             o[1] = section.dateRange;
             o[2] = section.meetingDays;
@@ -56,6 +76,7 @@ public class MyBill_JF_Schedule extends javax.swing.JFrame {
             o[5] = section.instructor;
             o[6] = section.creditHours;
 
+            // Add new record to the table
             model.addRow(o);
         }
     }
@@ -76,8 +97,11 @@ public class MyBill_JF_Schedule extends javax.swing.JFrame {
         TP_Recipt = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TP_Header = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MyBill | Taylor & Lester");
 
         ScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,44 +134,53 @@ public class MyBill_JF_Schedule extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane3.setViewportView(TP_Header);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(L_Recipt)
-                        .addGap(318, 318, 318))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184))
+                        .addGap(63, 63, 63)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(185, 185, 185))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 961, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(352, 352, 352))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(L_Recipt))
+                        .addGap(86, 86, 86)
+                        .addComponent(L_Recipt)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(100, 100, 100)))))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,10 +236,12 @@ public class MyBill_JF_Schedule extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel L_Recipt;
     private javax.swing.JTable ScheduleTable;
+    private javax.swing.JTextPane TP_Header;
     private javax.swing.JTextPane TP_Recipt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,9 +12,15 @@ import java.util.Arrays;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Activity_Fee;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.CAPS;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Classes;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.School_Name;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_FinAid;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_ID;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Name;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Refund;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Subtotal;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Student_Total;
 import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Technology_Fee;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.Term;
 
 /**
  *
@@ -110,7 +116,13 @@ public class MyBill_JF_FileSave
 
         // Creates a new file and then opens the file to write the students price breakdown
         try (FileWriter myWriter = new FileWriter(SD_Location.getSelectedFile()+".txt")) {
-            myWriter.write(courseColumns + "\n"
+            
+            myWriter.write("Student Name: " + Student_Name
+                         + "\nStudent ID: " + Student_ID
+                         + "\nSchool Name: " + School_Name
+                         + "\nSemester Term: " + Term + "\n\n"
+                         + repeatChar('*', 152) + "\n\n"
+                         + courseColumns + "\n"
                          + repeatChar('-', 152) + "\n"
                          + data + "\n\n"
                          + repeatChar('-', 34)
@@ -119,7 +131,11 @@ public class MyBill_JF_FileSave
                          + "\nTechnology Fee:          $" + df.format(Technology_Fee)
                          + "\nCAPS Fee:                $" + df.format(CAPS)
                          + "\n" + repeatChar('-', 34)
-                         + "\nTotal:                   $" + df.format(Student_Total));
+                         + "\nTotal:                   $" + df.format(Student_Total)
+                         + "\nFinancial Aid:           $" + df.format(Student_FinAid)
+                         + "\n" + repeatChar('-', 34)
+                         + "\nNew Total:               $" + df.format(Student_Refund));
+            
             myWriter.close();
         } 
         catch (IOException e) {

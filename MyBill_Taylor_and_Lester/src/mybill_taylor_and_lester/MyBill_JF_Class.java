@@ -260,7 +260,7 @@ public class MyBill_JF_Class
         addToList(entry);
         
         // Opens next form and closes current
-        new MyBill_JF_Residency().setVisible(true);
+        new MyBill_JF_FinancialAid().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_Btn_DoneActionPerformed
 

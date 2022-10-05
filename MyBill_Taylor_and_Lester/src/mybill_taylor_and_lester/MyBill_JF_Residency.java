@@ -5,6 +5,9 @@
  */
 package mybill_taylor_and_lester;
 
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.calculateTotal;
+import static mybill_taylor_and_lester.MyBill_Taylor_and_Lester.getResidency;
+
 /**
  *
  * @author brownt7272
@@ -108,11 +111,11 @@ public class MyBill_JF_Residency
         }
         
         // Sends the data to the main program for storage
-        MyBill_Taylor_and_Lester.getResidency(rate);
+        getResidency(rate);
         
         // Calls calculate method in the main program and closes the window
         this.dispose();
-        MyBill_Taylor_and_Lester.calculateTotal();
+        calculateTotal();
     }//GEN-LAST:event_Btn_NextActionPerformed
 
     private void Btn_ExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_Btn_ExitActionPerformed
